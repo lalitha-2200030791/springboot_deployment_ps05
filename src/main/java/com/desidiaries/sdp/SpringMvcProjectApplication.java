@@ -8,7 +8,7 @@ public class SpringMvcProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMvcProjectApplication.class, args);
-		System.out.println("SDP Project Working......");
+		System.out.println("SDP Project Works......");
 	}
 
 }
