@@ -11,7 +11,7 @@
 	<groupId>com.jfsd.springmvc</groupId>
 	<artifactId>SpringMVCProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>SpringMVCProject</name>
 	<description>DD</description>
 	<url/>
@@ -28,7 +28,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 	
@@ -88,12 +88,6 @@
     <artifactId>mysql-connector-j</artifactId>
     <version>9.1.0</version><!--$NO-MVN-MAN-VER$-->
 </dependency>
-		<dependencies>
-    <!-- Spring Boot Data JPA dependency -->
-<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
-
-</dependencies>
-
 	</dependencies>
 
 	<build>

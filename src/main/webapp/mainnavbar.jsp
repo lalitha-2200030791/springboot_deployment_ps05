@@ -114,9 +114,41 @@
     .sidebar.open {
         transform: translateX(0);
     }
+    /* Search bar styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 15px;
+}
+
+.search-bar input {
+    padding: 5px 10px;
+    border: 1px solid #4b0082;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-bar button {
+    background-color: #ffcc5c;
+    color: #422800;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #ff9900;
+}
+    
 </style>
 </head>
 <body>
+
     <!-- Header bar with hamburger on the left, title centered, and navbar links on the right -->
     <div class="header-bar">
         <!-- Hamburger menu button -->
@@ -126,6 +158,11 @@
             <span></span>
         </div>
         <h2 class="header-title">CULTURE COVE</h2>
+        <!-- Search bar -->
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search..." oninput="searchSite()">
+    <button onclick="searchSite()">🔍</button>
+</div>
         <!-- Navbar links -->
         <div class="navbar-links">
             <a href="userreg">Register</a>
@@ -140,6 +177,7 @@
         <a href="blogs">Blogs</a>
         <a href="gallery">Gallery</a>
     </div>
+
 
     <script>
         // JavaScript function to toggle sidebar menu
@@ -158,6 +196,57 @@
                 sidebar.classList.remove('open');
             }
         });
+     // Simulated search function
+        function searchSite() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    
+    if (!searchInput.trim()) {
+        alert('Please enter something to search!');
+        return;
+    }
+
+    // Use encodeURIComponent in JavaScript, not EL
+    const encodedSearchQuery = encodeURIComponent(searchInput);
+
+    // Fetch search results from the backend API
+    fetch(`/search?query=${encodedSearchQuery}`)
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to fetch search results');
+            return response.json(); // Parse the JSON response
+        })
+        .then(results => {
+            // Display search results
+            displayResults(results);
+        })
+        .catch(error => console.error('Error fetching search results:', error));
+}
+
+function displayResults(results) {
+    const resultContainer = document.getElementById('resultContainer') || createResultContainer();
+    resultContainer.innerHTML = '';
+
+    if (results.length > 0) {
+        results.forEach(result => {
+            const item = document.createElement('p');
+            item.textContent = result;
+            item.style.backgroundColor = '#ffcc5c'; // Highlight matching results
+            resultContainer.appendChild(item);
+        });
+    } else {
+        resultContainer.textContent = 'No results found.';
+    }
+}
+
+function createResultContainer() {
+    const container = document.createElement('div');
+    container.id = 'resultContainer';
+    container.style.marginTop = '20px';
+    container.style.padding = '10px';
+    container.style.backgroundColor = '#f8e3b2';
+    container.style.border = '1px solid #4b0082';
+    document.body.appendChild(container);
+    return container;
+}
     </script>
 </body>
 </html>

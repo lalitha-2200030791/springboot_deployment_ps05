@@ -116,10 +116,12 @@ input[type="number"]:focus {
 <div class="container">
 <h3>User Registration</h3>
 <form method="post" action="insertuser">
+    <!-- Name Field: Max 25 characters -->
     <label>Enter Name</label>
-    <input type="text" name="usname" required />
+    <input type="text" name="usname" maxlength="25" pattern="[A-Za-z\s]{1,25}" title="Name should be a maximum of 25 alphabetic characters" required />
     <br/>
     
+    <!-- Gender Field -->
     <label>Select Gender</label>
     <div class="radio-group">
         <div>
@@ -137,18 +139,22 @@ input[type="number"]:focus {
     </div>
     <br/>
 
+    <!-- Email Field -->
     <label>Enter Email Id</label>
     <input type="email" name="usemail" required />
     <br/>
     
+    <!-- Password Field: Must be exactly 8 characters -->
     <label>Enter Password</label>
-    <input type="password" name="uspassword" required />
+    <input type="password" name="uspassword" minlength="8" maxlength="8" pattern=".{8}" title="Password must be exactly 8 characters" required />
     <br/>
     
+    <!-- Contact Number Field: Must be exactly 10 digits -->
     <label>Enter Contact Number</label>
-    <input type="number" name="uscontactno" required />
+    <input type="number" name="uscontactno" minlength="10" maxlength="10" pattern="[0-9]{10}" title="Contact number must be exactly 10 digits" required />
     <br/>
     
+    <!-- Buttons -->
     <input type="submit" value="Register" class="btn"/>
     <input type="reset" value="Clear" class="btn"/>
 </form>

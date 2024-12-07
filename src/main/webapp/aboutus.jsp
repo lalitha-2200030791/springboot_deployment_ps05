@@ -94,15 +94,15 @@
         <h2>Meet Our Team</h2>
         <div class="team-member">
             <h3>Lalitha Sri Vidhya R</h3>
-            <p>Lead Developer</p>
+            <p>Back-end Developer</p>
         </div>
         <div class="team-member">
             <h3>Timiss Prathyusha</h3>
-            <p>Content Manager</p>
+            <p>UI/UX Designer</p>
         </div>
         <div class="team-member">
             <h3>Sathya Prasanna</h3>
-            <p>UI/UX Designer</p>
+            <p>Content Manager</p>
         </div>
     </div>
 
